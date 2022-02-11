@@ -5,12 +5,13 @@ use std::env;
 
 fn main() {
   for arg in env::args() {
-    if let Ok(lines) = read_lines(arg) {
+    if let Ok(lines) = read_lines(&arg) {
+      println!("### {} ###", arg);
       for line in lines {
         if let Ok(text) = line {
           let text = text.to_lowercase();
           if text.contains("todo") {
-            println!("{}",  text);
+            println!("{}", text);
           }
         }
       }
